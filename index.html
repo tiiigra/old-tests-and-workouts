@@ -11,8 +11,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
+    <link  href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
 
 </head>
 
@@ -31,9 +34,9 @@
                             <span class="clear"> <span class="m-t-xs"> <strong class="font-bold">Мария Петровна</strong>
                              </span> <span class="text-muted text-xs"><b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Профиль</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="#">Выйти</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -97,24 +100,22 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="fa fa-sign-out"></i> Log out
+                            <i class="fa fa-sign-out"></i> Выйти
                         </a>
                     </li>
                 </ul>
-
             </nav>
         </div>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
-                <div class="col-lg-8 col-md-7 m-l-n-xs">
+                <div class="col-lg-8 col-md-7 col-sm-7 m-l-n-xs">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <div>
                                 <div class="feed-activity-list">
-
                                     <div class="feed-element">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/profile.jpg">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a1.jpg">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">5m ago</small>
@@ -122,9 +123,8 @@
                                             <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
                                         </div>
                                     </div>
-
                                     <div class="feed-element">
-                                        <a href="profile.html" class="pull-left">
+                                        <a href="#" class="pull-left">
                                             <img alt="image" class="img-circle" src="img/a2.jpg">
                                         </a>
                                         <div class="media-body ">
@@ -134,8 +134,18 @@
                                         </div>
                                     </div>
                                     <div class="feed-element">
-                                        <a href="profile.html" class="pull-left">
+                                        <a href="#" class="pull-left">
                                             <img alt="image" class="img-circle" src="img/a3.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <small class="pull-right">2h ago</small>
+                                            <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
+                                            <small class="text-muted">2 days ago at 8:30am</small>
+                                        </div>
+                                    </div>
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a4.jpg">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">2h ago</small>
@@ -144,8 +154,8 @@
                                         </div>
                                     </div>
                                     <div class="feed-element">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a3.jpg">
+                                        <a href="" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a5.jpg">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">2h ago</small>
@@ -153,28 +163,17 @@
                                             <small class="text-muted">2 days ago at 8:30am</small>
                                         </div>
                                     </div>
-                                    <div class="feed-element">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a3.jpg">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="pull-right">2h ago</small>
-                                            <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">2 days ago at 8:30am</small>
-                                        </div>
-                                    </div>
-
                                 </div>
-
-                                <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> Show More</button>
-
+                                <div class="text-center">
+                                    <button class="btn btn-primary m-t"><i class="fa fa-arrow-down"></i> Еще</button>
+                                </div>
                             </div>
 
                         </div>
                     </div>
 
                 </div>
-                <div class="col-lg-4 col-md-5">
+                <div class="col-lg-4 col-md-5 col-sm-8 col-sm-5">
                     <div class="widget lazur-bg no-padding m-t-n-sm m-l-n-sm m-r-n-sm">
                         <div class="widget lazur-bg p-md text-center">
                             <i class="fa fa-line-chart fa-2x"></i>
@@ -207,7 +206,6 @@
             </div>
         </div>
     </div>
-
     </div>
 </div>
 
@@ -221,6 +219,9 @@
 <script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
 
+<!-- Toastr -->
+<script src="js/plugins/toastr/toastr.min.js"></script>
+
 <script>
     $(document).ready(function() {
         setTimeout(function() {
@@ -228,15 +229,14 @@
                 closeButton: true,
                 progressBar: true,
                 showMethod: 'slideDown',
-                timeOut: 4000
+                timeOut: 4000,
+                positionClass: "toast-top-left"
             };
-            toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
+            toastr.success('Вы успешно залогинились.', "Поздравляем!");
 
         }, 1300);
-
     });
 </script>
-
 
 </body>
 
