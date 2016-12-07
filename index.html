@@ -40,10 +40,10 @@
                             ng-repeat="item in itemList.items"
                             ng-click="itemList.getCurrentComments($index)">
                             <div class="item-container">
-                                <span class="item-payload">
+                                <span class="item-payload" ng-cloak>
                                     {{item.payload}}
                                 </span>
-                                <span class= item-quantity>
+                                <span class=item-quantity ng-cloak>
                                     {{item.commentsQuantity}}
                                 </span>
                             </div>
@@ -53,14 +53,14 @@
                     </ul>
                 </div>
             </section>
-            <section class="comments-list" ng-hide="itemList.isEmpty">
+            <section class="comments-list" ng-hide="itemList.isEmpty" ng-cloak>
                <div class="comment-list-inner-container">
-                    <h2 class="comments-header">Comments #{{itemList.currentItemIndex + 1}}</h2>
+                    <h2 class="comments-header" ng-cloak>Comments #{{itemList.currentItemIndex + 1}}</h2>
                     <ul class="comments">
                         <li class="comment clearfix"
                            ng-repeat="comment in itemList.currentComments track by $index">
                            <span class="img"></span>
-                           <p class="comment-text">
+                           <p class="comment-text" ng-cloak>
                                 {{comment}}
                            </p>
                         </li>
