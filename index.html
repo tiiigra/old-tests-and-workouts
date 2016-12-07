@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"
+      ng-app="EmpeekTest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Empeek Test</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body ng-cloack>
+    <div ng-controller="ItemListCtrl as itemList"
+         class="app-wrapper clearfix">
+        <aside>
+           <h2 class="aside-header">Main</h2>
+           <div class="menu-item">Overview</div>
+        </aside>
+        <main class="clearfix">
+            <section class="items-list">
+               <div class="item-list-inner-container">
+                    <h2>Items</h2>
+                    <form name="itemForm" class="item-list-form" ng-submit="itemList.add();" novalidate>
+                        <input class="item-list-input" 
+                                name="input"
+                                type="text" 
+                                placeholder="Type new name here..."
+                                ng-model="itemList.input"
+                                required>
+                        <button class="item-list-button" 
+                                type="submit"
+                                ng-disabled="itemForm.$invalid && itemForm.input.$touched">
+                                Add new
+                        </button>
+                    </form>
+                    <ul>
+                        <li class="item clearfix"
+                            ng-class="{'selected':$index == itemList.currentItemIndex}"
+                            ng-repeat="item in itemList.items"
+                            ng-click="itemList.getCurrentComments($index)">
+                            <div class="item-container">
+                                <span class="item-payload">
+                                    {{item.payload}}
+                                </span>
+                                <span class= item-quantity>
+                                    {{item.commentsQuantity}}
+                                </span>
+                            </div>
+                            <button class="item-rm-button" 
+                            ng-click="itemList.remove($index);">Remove</button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="comments-list" ng-hide="itemList.isEmpty">
+               <div class="comment-list-inner-container">
+                    <h2 class="comments-header">Comments #{{itemList.currentItemIndex + 1}}</h2>
+                    <ul class="comments">
+                        <li class="comment clearfix"
+                           ng-repeat="comment in itemList.currentComments track by $index">
+                           <span class="img"></span>
+                           <p class="comment-text">
+                                {{comment}}
+                           </p>
+                        </li>
+                    </ul>
+                    <div class="comment-submit clearfix">
+                        <span class="img"></span>
+                        <form name="commentForm"
+                              novalidate
+                              class="textarea-container"
+                              submit-enter="itemList.addComment();">
+                              <textarea name="newComment"
+                                      class="comment-input"
+                                      ng-model="itemList.commentInput"
+                                      required>
+                              </textarea>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+    <script src="src/test.module.js"></script>
+    <script src="src/itemList.controller.js"></script>
+    <script src="src/submitEnter.directive.js"></script>
+    <script src="src/itemList.service.js"></script>
+    <script src="src/Storage.service.js"></script>
+
+</body>
+</html>

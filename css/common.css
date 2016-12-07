@@ -1,0 +1,49 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font: 12px/18px 'Open Sans', sans-serif;
+    background: #f9f9f9;
+    color: #666;
+}
+
+h2 {
+    font: 300 36px/38px 'Open Sans', sans-serif;
+    color: #565a69;
+}
+
+:-webkit-input-placeholder {
+    color: #b3b3b3;
+}
+
+:-ms-input-placeholder {
+    color: #b3b3b3;
+}
+
+:-moz-placeholder {
+    color: #b3b3b3;
+}
+
+:focus {
+    border-color: #2B2F3E;
+    outline: none;
+}
+
+button {
+    font-family: 'Open Sans', sans-serif;
+}
