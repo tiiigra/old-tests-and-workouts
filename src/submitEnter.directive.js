@@ -4,19 +4,21 @@
 
     angular.module('EmpeekTest')
 
-    .directive('submitEnter', function() {
+    .directive('submitEnter', SubmitEnterDirective);
 
-        return function(scope, element, attrs) {
+    function  SubmitEnterDirective() {
 
-            element.bind("keypress", function(e) {
+        return function (scope, element, attrs) {
 
-                if(e.which === 13) {
+            element.on("keypress", function (e) {
+
+                if (e.which === 13) {
 
                     if (scope.commentForm.$invalid) {
                         return;
                     }
 
-                    scope.$apply(function(){
+                    scope.$apply(function () {
                         scope.$eval(attrs.submitEnter, {'e': e});
                     });
 
@@ -24,5 +26,5 @@
                 }
             });
         };
-    });
+    }
 })();
