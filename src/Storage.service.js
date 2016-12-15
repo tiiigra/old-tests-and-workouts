@@ -50,7 +50,6 @@
 
         function getItems() {
             var data =  JSON.parse(localStorage.getItem("items"));
-            console.log(data);
             return data;
         }
 

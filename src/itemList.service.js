@@ -12,8 +12,6 @@
 
         service.items = StorageService.getData();
 
-        console.log("service.items", service.items) ;
-
         $rootScope.$on('storageEvent', function(event, data) {
             service.items = data;
         });
